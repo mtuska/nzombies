@@ -88,14 +88,14 @@ function BuyableBlockSpawn(pos,ang,model,flagsStr)
 end
 
 function PerkMachineSpawn(position, angle, id)
+	local perkData = nz.Perks.Get(id)
 	local perk = ents.Create("perk_machine")
 	perk:SetPerkID(id)
-	perk:SetModel(nz.Perk.Get(id).model)
+	perk:SetModel(perkData.model)
 	perk:SetPos(position)
 	perk:SetAngles(angle)
 	perk:Spawn()
-	perk:SetSolid(SOLID_VPHYSICS)
-	perk:SetMoveType(MOVETYPE_NONE)
+	perk:Activate()
 end
 
 function EasterEggSpawn(pos,ang,model)

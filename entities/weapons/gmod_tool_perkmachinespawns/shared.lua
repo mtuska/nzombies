@@ -40,7 +40,7 @@ SWEP.Secondary =
 SWEP.CanHolster			= true
 SWEP.CanDeploy			= true
 
-SWEP.SwitchModel = PerksColas[SWEP.PerkID].Model
+SWEP.SwitchModel = nz.Perks.Get(SWEP.PerkID).model
 SWEP.ReloadingTime = CurTime()
 
 --[[---------------------------------------------------------
@@ -125,7 +125,7 @@ function SWEP:PrimaryAttack()
 		
 		local vec = trace.HitPos + trace.HitNormal * -54
 		
-		PerkMachineSpawn(vec, trace.HitNormal:Angle(), PerksColas[self.PerkID])
+		PerkMachineSpawn(vec, trace.HitNormal:Angle(), self.PerkID)
 		self:DoShootEffect( trace.HitPos, trace.HitNormal, trace.Entity, trace.PhysicsBone, IsFirstTimePredicted() )
 	end
 end
